@@ -6,7 +6,7 @@ const app = express();
 
 //Settings
 app.set('port', process.env.PORT || 4000);
-app.set('views', path.join(__dirname, '/views'));
+app.set('views', path.join(__dirname, 'views'));
 
 //Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
 })
 
 // Static files
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
