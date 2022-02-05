@@ -2,6 +2,7 @@ const express = require('express');
 const { partials } = require('handlebars');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const morgan = require('morgan');
 
 //Initialization
 const app = express();
@@ -20,7 +21,9 @@ app.engine('.hbs', exphbs.engine({
 app.set('view engine', '.hbs'); 
 
 //Middleware
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
+
 
 // Global variables
 

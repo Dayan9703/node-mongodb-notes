@@ -7,7 +7,7 @@ const { route } = require('./index.routes');
 //new notes
 router.get('/notes/add', renderNoteForm);
 
-router.post('/notes/add', createNewNote);
+router.post('/notes/new-note', createNewNote);
 
 //get all routes
 router.get('/notes', renderNotes);
