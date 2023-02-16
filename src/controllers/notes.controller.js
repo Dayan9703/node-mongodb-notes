@@ -25,10 +25,10 @@ notesCtrl.renderNotes = async (req, res) => {
 notesCtrl.renderEditForm = async (req, res) => {
     const note = await Note.findById(req.params.id).lean();
     res.render('notes/edit-note', { note });
-    console.log({note})
+    console.log({ note })
 };
 
-notesCtrl.updateNote = async function(req, res){
+notesCtrl.updateNote = async function (req, res) {
     const { title, description } = req.body;
     await Note.findByIdAndUpdate(req.params.id, { title, description })
     req.flash('success_msg', 'Note Update Successfuly');
